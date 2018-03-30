@@ -3,6 +3,12 @@
 module.exports = function (app) {
   // Root routing
   var core = require('../controllers/core.server.controller');
+  var product = require('../controllers/product.server.controller');
+
+  app.route('/api/v1/products').get(product.list);
+  app.route('/api/v1/products').post(product.create);
+  // app.route('/api/v1/products/:id').put(product.create);
+  // app.route('/api/v1/products/:id').delete(product.create);
 
   // Define error pages
   app.route('/server-error').get(core.renderServerError);

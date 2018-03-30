@@ -1,3 +1,33 @@
-<section>
-  <input ng-model="vm.test" />
+<section class="container">
+  <form novalidate ng-submit="vm.product_create()" >
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name"  placeholder="Coke..." ng-model="vm.name" >
+    </div>
+      <div class="form-group">
+        <label for="url">URL</label>
+        <input type="text" class="form-control" id="url"  placeholder="www.google.com" ng-model="vm.url">
+      </div>
+      <div class="form-group">
+        <label for="amount">Amount</label>
+        <input type="number" class="form-control" id="amount"  placeholder="10" ng-model="vm.amount">
+      </div>
+
+      <button type="submit" class="btn btn-primary">Add</button>
+  </form> 
+  <hr/>
+  <div class="row">
+    <div class="col-sm-2" ng-repeat="item in vm.list track by $index">
+      <div class="card" style="width: 18rem;" >
+        <span class="small clearfix" style="text-align: right; color: red; cursor: pointer" ng-click="vm.product_delete(item._id)" >remove</span>
+        <div class="card-body">
+          <h5 class="card-title">{{item.name}}</h5>
+          <p class="card-text"><a href="{{item.url}}" target="_blank" > Open Link</a></p>
+          <label>Amount: <input type="text" ng-model="item.amount" /></label><br />
+          <label>Prev amount {{item.prev_amount}}</label><br />
+          <a href="#" class="btn btn-primary" ng-click="update(item)">Update</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
