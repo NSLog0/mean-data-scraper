@@ -15,7 +15,8 @@
     "npm": "3.10.10"
   },
   "scripts": {
-    "start": "gulp",
+    "dev": "gulp",
+    "start": "gulp prod",
     "test": "gulp test",
     "postinstall": "bower install --config.interactive=false"
   },

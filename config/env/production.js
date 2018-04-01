@@ -9,7 +9,7 @@ module.exports = {
   },
   sessionSecret: process.env.SESSION_SECRET,
   db: {
-    uri: process.env.MONGODB_URI,
+    uri: process.env.MONGODB_URI || 'mongodb://' + (process.env.DB_1_PORT_27017_TCP_ADDR || 'localhost') + '/mean',
     options: {
       user: '',
       pass: ''
