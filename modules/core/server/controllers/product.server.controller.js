@@ -39,7 +39,7 @@ exports.create = function(req, res) {
 };
 
 exports.update = function(req, res) {
-  Product.update({ _id: ObjectId.createFromHexString(req.body.productID.toString()) }, req.body)
+  Product.update({ _id: ObjectId.createFromHexString(req.params.productID.toString()) }, req.body)
  .exec(function(err) {
    if (err) {
      return res.status(400).send({
@@ -53,7 +53,7 @@ exports.update = function(req, res) {
 };
 
 exports.remove = function(req, res) {
-  Product.remove({ _id: ObjectId.createFromHexString(req.body.productID.toString()) })
+  Product.remove({ _id: ObjectId.createFromHexString(req.params.productID.toString()) })
  .exec(function(err) {
    if (err) {
      return res.status(400).send({

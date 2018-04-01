@@ -23,7 +23,6 @@
         <h4 class="card-title">{{item.name}}</h4>
         <p class="card-text"><a href="{{item.url}}" target="_blank" > Open Link</a></p>
         <label>Amount: <input type="text" ng-model="item.amount" /></label><br />
-        <label>Prev amount {{item.prev_amount}}</label><br />
         <a href="#" class="btn btn-primary" ng-click="vm.product_update(item)">Update</a>
         <a href="#" class="btn btn-danger" ng-click="vm.product_delete(item._id)">Delete</a>
       </div>

@@ -33,7 +33,7 @@
     }
 
     function product_update(item) {
-      ProductService.update(item._id, item).then(function(res) {
+      ProductService.update(item._id, item, { headers: { 'Content-Type': 'application/json' } }).then(function(res) {
         if (res.status === 200) { 
           ngNotify.set('Product has been created. reloading!!!',{ type: 'success' });
           return ProductService.list();

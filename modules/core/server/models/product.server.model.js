@@ -7,7 +7,8 @@ var mongoose = require('mongoose'),
   Schema = mongoose.Schema,
   path = require('path'),
   config = require(path.resolve('./config/config')),
-  chalk = require('chalk');
+  chalk = require('chalk'),
+  moment = require('moment');
 
 var ProductSchema = new Schema({
   created: {
@@ -26,10 +27,6 @@ var ProductSchema = new Schema({
     trim: true
   },
   amount: {
-    type: Number,
-    default: 0
-  },
-  prev_amount: {
     type: Number,
     default: 0
   }
