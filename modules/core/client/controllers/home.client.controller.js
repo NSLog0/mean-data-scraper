@@ -3,9 +3,9 @@
 
   angular.module('core').controller('HomeController', HomeController);
 
-  HomeController.$inject = ['$scope', 'ProductService', 'productListResolve'];
+  HomeController.$inject = ['$scope', 'ProductService', 'productListResolve', 'ngNotify'];
 
-  function HomeController($scope, ProductService, productListResolve) {
+  function HomeController($scope, ProductService, productListResolve, ngNotify) {
     var vm = this;
 
     vm.product_create = product_create;
@@ -20,15 +20,42 @@
         amount: vm.amount
       };
 
-      ProductService.create(params);
+      ProductService.create(params).then(function(res) {
+        if (res.status === 200) { 
+          ngNotify.set('Product has been created. reloading!!!',{ type: 'success' });
+          return ProductService.list();
+        } else { 
+          ngNotify.set('error, missing data', { type: 'error' });
+        }
+      }).then(function(res){
+        vm.list = res.data;
+      });
     }
 
-    function product_update() {
-      alert('update');
+    function product_update(item) {
+      ProductService.update(item._id, item).then(function(res) {
+        if (res.status === 200) { 
+          ngNotify.set('Product has been created. reloading!!!',{ type: 'success' });
+          return ProductService.list();
+        } else { 
+          ngNotify.set('error, missing data', { type: 'error' });
+        }
+      }).then(function(res){
+        vm.list = res.data;
+      });
     }
 
     function product_delete(id) {
-      console.log(id);
+      ProductService.remove(id).then(function(res) {
+        if (res.status === 200) { 
+          ngNotify.set('Product has been deleted. reloading!!!',{ type: 'success' });
+          return ProductService.list();
+        } else { 
+          ngNotify.set('error, missing data', { type: 'error' });
+        }
+      }).then(function(res){
+        vm.list = res.data;
+      });
     }
   }
 })();
