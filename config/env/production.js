@@ -2,6 +2,11 @@
 
 module.exports = {
   port: process.env.PORT || 8443,
+  secure: {
+    ssl: true,
+    privateKey: './config/sslcerts/key.pem',
+    certificate: './config/sslcerts/cert.pem'
+  },
   sessionSecret: process.env.SESSION_SECRET,
   db: {
     uri: process.env.MONGODB_URI,
