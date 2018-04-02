@@ -4,7 +4,8 @@ module.exports = {
   client: {
     lib: {
       css: [
-        'public/lib/ng-notify/dist/ng-notify.min.css'
+        'public/lib/ng-notify/dist/ng-notify.min.css',
+        'public/lib/animate.css/animate.min.css'
       ],
       js: [
         'public/lib/angular/angular.js',

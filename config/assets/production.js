@@ -6,7 +6,8 @@ module.exports = {
       css: [
         'public/lib/bootstrap/dist/css/bootstrap.min.css',
         'public/lib/bootstrap/dist/css/bootstrap-theme.min.css',
-        'public/lib/ng-notify/dist/ng-notify.min.css'
+        'public/lib/ng-notify/dist/ng-notify.min.css',
+        'public/lib/animate.css/animate.min.css'
       ],
       js: [
         'public/lib/angular/angular.min.js',
