@@ -11,6 +11,7 @@ module.exports = function (app) {
   app.route('/api/v1/products/:productID')
     .put(product.update)
     .delete(product.remove);
+  app.route('/t').get(product.t);
 
   // Define error pages
   app.route('/server-error').get(core.renderServerError);
@@ -20,5 +21,5 @@ module.exports = function (app) {
 
   // Define application route
   app.route('/*').get(core.renderIndex);
-  
+
 };

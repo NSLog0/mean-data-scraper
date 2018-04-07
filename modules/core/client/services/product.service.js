@@ -8,7 +8,7 @@
   function ProductService($http, $q) {
     this.create = function(data) {
       var defer = $q.defer();
-      
+
       $http.post('/api/v1/products', data).then(success, error);
 
       function success(res) {
@@ -20,9 +20,9 @@
       }
 
       return defer.promise;
-      
+
     };
-    
+
     this.list = function(page, perPage) {
       var defer = $q.defer();
       $http.get('/api/v1/products').then(success, error);
@@ -37,7 +37,7 @@
 
       return defer.promise;
     };
-  
+
     this.update = function(id, item) {
       var defer = $q.defer();
       $http.put('/api/v1/products/'+id, item).then(success, error);
